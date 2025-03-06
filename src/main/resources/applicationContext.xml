@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:triangle.properties"/>
+
     <bean id="student"
           class="com.example.springEducation.FirstBean">
         <constructor-arg value="Dmitriy"/>
+    </bean>
+
+    <bean id="triangleBean"
+          class="com.example.springEducation.Triangle"
+          init-method="onInit"
+          destroy-method="onDestroy"
+          factory-method="createTriangle"
+    >
+        <property name="sideA" value="${triangleBean.sideA}"/>
+        <property name="sideB" value="${triangleBean.sideB}"/>
+        <property name="sideC" value="${triangleBean.sideC}"/>
+    </bean>
+
+    <bean id="figureShow" scope="prototype"
+          class="com.example.springEducation.FigureShow">
+        <constructor-arg ref="triangleBean"/>
     </bean>
 </beans>
