@@ -1,7 +1,25 @@
 package com.example.springEducation;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope("prototype")
 public class Triangle implements Figure{
-    float sideA, sideB, sideC;
+
+    @Value("${triangleBean.sideA}")
+    private float sideA;
+    @Value("${triangleBean.sideB}")
+    private float sideB;
+    @Value("${triangleBean.sideC}")
+    private float sideC;
+
+    public Triangle()
+    {
+    }
 
     public float getSideA() {
         return sideA;
@@ -38,11 +56,13 @@ public class Triangle implements Figure{
         return sideA + sideB + sideC;
     }
 
+    @PostConstruct
     public void onInit()
     {
         System.out.println("Triangle initialize");
     }
 
+    @PreDestroy
     public void onDestroy()
     {
         System.out.println("Triangle destroy");

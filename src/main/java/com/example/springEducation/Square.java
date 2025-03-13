@@ -1,5 +1,8 @@
 package com.example.springEducation;
 
+import org.springframework.stereotype.Component;
+
+
 public class Square implements Figure{
     @Override
     public float getArea() {
