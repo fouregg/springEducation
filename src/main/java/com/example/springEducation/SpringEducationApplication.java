@@ -11,12 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class SpringEducationApplication {
 
 	public static void main(String[] args) {
-		AnnotationConfigApplicationContext  context = new AnnotationConfigApplicationContext(AppConfig.class);
-		FigureShow figureShow = context.getBean(FigureShow.class);
-		context.registerShutdownHook();
-		figureShow.show();
-
-		//SpringApplication.run(SpringEducationApplication.class, args);
+		SpringApplication.run(SpringEducationApplication.class, args);
 	}
 
 }
