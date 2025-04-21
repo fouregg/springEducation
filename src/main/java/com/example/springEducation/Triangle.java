@@ -10,11 +10,8 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")
 public class Triangle extends Figure{
 
-    @Value("${triangleBean.sideA}")
     private float sideA;
-    @Value("${triangleBean.sideB}")
     private float sideB;
-    @Value("${triangleBean.sideC}")
     private float sideC;
 
     public Triangle()

@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 public class Square extends Figure{
     private int sideA, sideB;
 
+    public Square()
+    {}
     public Square(String name, int sideA, int sideB) {
         this.sideA = sideA;
         this.sideB = sideB;
@@ -30,11 +32,11 @@ public class Square extends Figure{
 
     @Override
     public float getArea() {
-        return 5 * 5;
+        return sideA * sideB;
     }
 
     @Override
     public float getPerimeter() {
-        return 4 * 5;
+        return sideA * 2 + sideB * 2;
     }
 }

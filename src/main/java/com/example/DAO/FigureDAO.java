@@ -35,4 +35,10 @@ public class FigureDAO {
                 .findAny()
                 .orElse(null);
     }
+
+    public void save(Figure figure)
+    {
+        figures.add(figure);
+        COUNT_FIGURE++;
+    }
 }

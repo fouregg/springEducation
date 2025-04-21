@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https//thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Square Form</title>
+</head>
+<body>
+<h1>Square</h1>
+<form th:method="POST" th:action="@{/figures/square}" th:object="${square}">
+    <label for="name">Enter name triangle:</label><br>
+    <input type="text" id="name" th:field="*{name}">
+    <br/>
+    <label for="side A">Side A:</label><br>
+    <input type="number" id="side A" th:field="*{sideA}">
+    <br/>
+    <label for="side B">Side B:</label><br>
+    <input type="number" id="side B" th:field="*{sideB}">
+    <br/>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
