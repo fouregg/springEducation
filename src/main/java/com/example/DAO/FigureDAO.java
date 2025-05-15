@@ -23,7 +23,6 @@ public class FigureDAO {
         COUNT_FIGURE++;
     }
 
-
     public List<Figure> index(){
         return figures;
     }
@@ -40,5 +39,37 @@ public class FigureDAO {
     {
         figures.add(figure);
         COUNT_FIGURE++;
+    }
+
+    public Figure getObject(String name)
+    {
+        for (Figure figure : figures)
+        {
+            if (figure.getName().equals(name))
+                return figure;
+        }
+        return null;
+    }
+
+    public int getIndex(Figure figure)
+    {
+        for (int i = 0; i < figures.size(); i++)
+        {
+            if (figures.get(i).getName().equals(figure.getName()))
+                return i;
+        }
+        return -1;
+    }
+
+    public void remove(Figure figure)
+    {
+        figures.remove(figure);
+        COUNT_FIGURE--;
+    }
+
+    public void update(Figure oldFigure, Figure newFigure)
+    {
+        if (this.getIndex(oldFigure) != -1)
+            figures.set(this.getIndex(oldFigure), newFigure);
     }
 }

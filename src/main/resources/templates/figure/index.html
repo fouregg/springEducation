@@ -9,6 +9,11 @@
 <div th:each="figure: ${figures}">
     <a th:href="@{/figures/{name}(name=${figure.getName()})}" th:text="${figure.getName()}">Name figure</a>
 </div>
-
+<button>
+    <a th:href="@{figures/square}">Create Square</a>
+</button>
+<button>
+    <a th:href="@{figures/triangle}">Create Triangle</a>
+</button>
 </body>
 </html>

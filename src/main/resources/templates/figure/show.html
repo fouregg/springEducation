@@ -27,5 +27,11 @@
         <td th:text="${figure.getPerimeter()}"></td>
     </tr>
 </table>
+<form th:method="delete" th:action="@{'/figures/' + ${figure.getName()}}">
+    <input type="submit" th:value="'Delete ' + ${figure.getName()}">
+</form>
+<button>
+    <a th:href="@{'/figures/update/' + ${figure.getName()}}">Update Figure</a>
+</button>
 </body>
 </html>
